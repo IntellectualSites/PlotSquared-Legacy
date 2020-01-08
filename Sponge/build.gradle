@@ -5,7 +5,6 @@ buildscript {
             name = "forge"
             url = "https://files.minecraftforge.net/maven"
         }
-        maven {url = "http://repo.minecrell.net/releases"}
         maven {
             url "https://plugins.gradle.org/m2/"
         }
@@ -32,10 +31,6 @@ targetCompatibility = 1.8
 
 repositories {
     maven {
-        name = 'minecrell'
-        url = 'http://repo.minecrell.net/releases'
-    }
-    maven {
         name = 'forge'
         url = 'http://files.minecraftforge.net/maven'
     }
@@ -47,7 +42,6 @@ repositories {
 minecraft {
     version = "1.12.2"
     mappings = "stable_39"
-    runDir = 'run'
 }
 
 project.archivesBaseName = "${project.archivesBaseName}-mc${minecraft.version}"
@@ -68,17 +62,6 @@ shadowJar {
 shadowJar.doLast {
     task ->
         ant.checksum file: task.archivePath
-}
-
-reobf {
-    shadowJar {
-        mappingType = 'SEARGE'
-    }
-}
-
-task deobfJar(type: Jar) {
-    from sourceSets.main.output
-    classifier = 'dev'
 }
 
 build.dependsOn(shadowJar)
