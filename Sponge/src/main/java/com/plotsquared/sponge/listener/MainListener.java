@@ -2,7 +2,6 @@ package com.plotsquared.sponge.listener;
 
 import com.intellectualcrafters.plot.PS;
 import com.intellectualcrafters.plot.config.C;
-import com.intellectualcrafters.plot.config.Settings;
 import com.intellectualcrafters.plot.flag.Flags;
 import com.intellectualcrafters.plot.object.*;
 import com.intellectualcrafters.plot.util.*;
@@ -160,11 +159,6 @@ public class MainListener {
                 return true;
             }
             Location loc = SpongeUtil.getLocation(entity);
-            if (EntityTypes.ITEM == entity.getType()) {
-                if (Settings.Enabled_Components.KILL_ROAD_ITEMS && loc.getOwnedPlotAbs() == null) {
-                    return false;
-                }
-            }
             Plot plot = loc.getPlot();
             if (plot == null) {
                 return !loc.isPlotRoad();
@@ -187,7 +181,7 @@ public class MainListener {
                 }
                 com.google.common.base.Optional<Integer> mobCap = plot.getFlag(Flags.MOB_CAP);
                 if (mobCap.isPresent()) {
-                    int cap = mobCap.get();
+                    Integer cap = mobCap.get();
                     if (cap == 0) {
                         return false;
                     }
@@ -241,7 +235,7 @@ public class MainListener {
             }
             com.google.common.base.Optional<Integer> entityCap = plot.getFlag(Flags.ENTITY_CAP);
             if (entityCap.isPresent()) {
-                int cap = entityCap.get();
+                Integer cap = entityCap.get();
                 if (cap == 0) {
                     return false;
                 }
@@ -334,7 +328,7 @@ public class MainListener {
             return;
         } else {
             com.google.common.base.Optional<HashSet<PlotBlock>> flag = plot.getFlag(Flags.USE);
-            org.spongepowered.api.world.Location<World> l = SpongeUtil.getLocation(loc);
+            org.spongepowered.api.world.Location l = SpongeUtil.getLocation(loc);
             if (flag.isPresent() && flag.get().contains(SpongeUtil.getPlotBlock(l.getBlock()))) {
                 return;
             }
@@ -735,7 +729,7 @@ public class MainListener {
                 event.setCancelled(true);
                 return;
             }
-            int border = area.getBorder();
+            Integer border = area.getBorder();
             if (z2 > border) {
                 to.add(0, 0, z2 - border - 4);
                 player.setLocation(to);
