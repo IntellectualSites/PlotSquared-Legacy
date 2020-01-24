@@ -124,6 +124,7 @@ public final class BukkitMain extends JavaPlugin implements Listener, IPlotMain 
     private String name;
     private SingleWorldListener singleWorldListener;
     private boolean metricsStarted;
+    private static final int BSTATS_ID = 1404;
 
     @Override
     public int[] getServerVersion() {
@@ -796,7 +797,7 @@ public final class BukkitMain extends JavaPlugin implements Listener, IPlotMain 
         if (this.metricsStarted) {
             return;
         }
-        Metrics metrics = new Metrics(this);// bstats
+        Metrics metrics = new Metrics(this, BSTATS_ID);// bstats
         PS.log(C.PREFIX + "&6Metrics enabled.");
         this.metricsStarted = true;
     }
