@@ -30,7 +30,7 @@ public class GenerateDocs {
             GenerateDocs.log("###### " + category.name());
             for (Command command : MainCommand.getInstance().getCommands(category, null)) {
                 GenerateDocs
-                        .log(" - [/plot " + command.getId() + "](https://github.com/IntellectualSites/PlotSquared/wiki/Commands#" + command.getId()
+                        .log(" - [/plot " + command.getId() + "](https://github.com/IntellectualSites/PlotSquared-Legacy/wiki/Commands#" + command.getId()
                                 + ")    ");
             }
             GenerateDocs.log("");
@@ -48,7 +48,7 @@ public class GenerateDocs {
 
             // Header
             String source =
-                    "https://github.com/IntellectualSites/PlotSquared/tree/master/Core/src/main/java/com/intellectualcrafters/plot/commands/" + clazz
+                    "https://github.com/IntellectualSites/PlotSquared-Legacy/tree/master/Core/src/main/java/com/intellectualcrafters/plot/commands/" + clazz
                             + ".java";
             GenerateDocs.log("## [" + name.toUpperCase() + "](" + source + ")    ");
 
