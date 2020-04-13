@@ -99,8 +99,8 @@ public class BukkitPlayer extends PlotPlayer {
 
     @Override
     public boolean hasPermission(String permission) {
-        if (this.offline && EconHandler.manager != null) {
-            return EconHandler.manager.hasPermission(getName(), permission);
+        if (this.offline && EconHandler.getEconHandler() != null) {
+            return EconHandler.getEconHandler().hasPermission(getName(), permission);
         }
         return this.player.hasPermission(permission);
     }

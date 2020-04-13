@@ -29,7 +29,7 @@ public class ListCmd extends SubCommand {
 
     private String[] getArgumentList(PlotPlayer player) {
         List<String> args = new ArrayList<>();
-        if (EconHandler.manager != null && Permissions.hasPermission(player, C.PERMISSION_LIST_FORSALE)) {
+        if (EconHandler.getEconHandler() != null && Permissions.hasPermission(player, C.PERMISSION_LIST_FORSALE)) {
             args.add("forsale");
         }
         if (Permissions.hasPermission(player, C.PERMISSION_LIST_MINE)) {
@@ -228,7 +228,7 @@ public class ListCmd extends SubCommand {
                     MainUtil.sendMessage(player, C.NO_PERMISSION, C.PERMISSION_LIST_FORSALE);
                     return false;
                 }
-                if (EconHandler.manager == null) {
+                if (EconHandler.getEconHandler() == null) {
                     break;
                 }
                 plots = new ArrayList<>();

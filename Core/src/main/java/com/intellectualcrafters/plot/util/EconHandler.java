@@ -1,20 +1,22 @@
 package com.intellectualcrafters.plot.util;
 
 import com.intellectualcrafters.plot.PS;
+import com.intellectualcrafters.plot.config.Settings;
 import com.intellectualcrafters.plot.object.ConsolePlayer;
 import com.intellectualcrafters.plot.object.OfflinePlotPlayer;
 import com.intellectualcrafters.plot.object.PlotPlayer;
 
 public abstract class EconHandler {
 
-    public static EconHandler manager;
-    private static boolean initialized;
+    private static EconHandler manager;
 
     public static EconHandler getEconHandler() {
-        if (initialized) {
+        if (!Settings.Enabled_Components.ECONOMY) {
+            return null;
+        }
+        if (manager != null) {
             return manager;
         }
-        initialized = true;
         return manager = PS.get().IMP.getEconomyHandler();
     }
 
