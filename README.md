@@ -19,7 +19,6 @@ is to provide a lag-free and smooth experience.
 * [Wiki](https://github.com/IntellectualSites/PlotSquared-Legacy/wiki/)
 
 ## Downloads
-### <1.12.2
 * [Download](https://ci.athion.net/job/PlotSquared-Legacy/)
 * [Dev Builds](https://ci.athion.net/job/PlotSquared-Legacy/)
 * [JavaDoc](https://ci.athion.net/job/PlotSquared-Legacy/javadoc/)
