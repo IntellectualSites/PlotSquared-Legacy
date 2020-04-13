@@ -31,7 +31,7 @@ public class Buy extends Command {
 
     @Override
     public void execute(final PlotPlayer player, String[] args, RunnableVal3<Command, Runnable, Runnable> confirm, final RunnableVal2<Command, CommandResult> whenDone) {
-        check(EconHandler.manager, C.ECON_DISABLED);
+        check(EconHandler.getEconHandler(), C.ECON_DISABLED);
         final Plot plot;
         if (args.length != 0) {
             checkTrue(args.length == 1, C.COMMAND_SYNTAX, getUsage());
@@ -54,7 +54,7 @@ public class Buy extends Command {
             @Override // Success
             public void run() {
                 C.REMOVED_BALANCE.send(player, price);
-                EconHandler.manager.depositMoney(UUIDHandler.getUUIDWrapper().getOfflinePlayer(plot.owner), price);
+                EconHandler.getEconHandler().depositMoney(UUIDHandler.getUUIDWrapper().getOfflinePlayer(plot.owner), price);
                 PlotPlayer owner = UUIDHandler.getPlayer(plot.owner);
                 if (owner != null) {
                     C.PLOT_SOLD.send(owner, plot.getId(), player.getName(), price);

@@ -630,7 +630,7 @@ public final class BukkitMain extends JavaPlugin implements Listener, IPlotMain 
                 return econ;
             }
         } catch (Throwable ignored) {
-            PS.debug("No economy detected!");
+            // PS.debug("No economy detected!");
         }
         return null;
     }

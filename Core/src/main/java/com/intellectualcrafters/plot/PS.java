@@ -190,7 +190,7 @@ public class PS{
 
             // Economy
             if (Settings.Enabled_Components.ECONOMY) {
-                TaskManager.runTask(() -> EconHandler.manager = PS.this.IMP.getEconomyHandler());
+                TaskManager.runTask(EconHandler::getEconHandler);
             }
 
             // World generators:

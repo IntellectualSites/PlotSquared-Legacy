@@ -65,14 +65,14 @@ public class Claim extends SubCommand {
         if (border != Integer.MAX_VALUE && plot.getDistanceFromOrigin() > border) {
             return !sendMessage(player, C.BORDER);
         }
-        if ((EconHandler.manager != null) && area.USE_ECONOMY) {
+        if ((EconHandler.getEconHandler() != null) && area.USE_ECONOMY) {
             Expression<Double> costExr = area.PRICES.get("claim");
             double cost = costExr.evaluate((double) currentPlots);
             if (cost > 0d) {
-                if (EconHandler.manager.getMoney(player) < cost) {
+                if (EconHandler.getEconHandler().getMoney(player) < cost) {
                     return sendMessage(player, C.CANNOT_AFFORD_PLOT, "" + cost);
                 }
-                EconHandler.manager.withdrawMoney(player, cost);
+                EconHandler.getEconHandler().withdrawMoney(player, cost);
                 sendMessage(player, C.REMOVED_BALANCE, cost + "");
             }
         }

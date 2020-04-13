@@ -2,6 +2,7 @@ package com.intellectualcrafters.plot.object;
 
 import com.intellectualcrafters.configuration.ConfigurationSection;
 import com.intellectualcrafters.plot.PS;
+import com.intellectualcrafters.plot.config.C;
 import com.intellectualcrafters.plot.config.Configuration;
 import com.intellectualcrafters.plot.config.ConfigurationNode;
 import com.intellectualcrafters.plot.config.Settings;
@@ -215,7 +216,7 @@ public abstract class PlotArea {
         this.SCHEMATIC_FILE = config.getString("schematic.file");
         this.SCHEMATIC_CLAIM_SPECIFY = config.getBoolean("schematic.specify_on_claim");
         this.SCHEMATICS = config.getStringList("schematic.schematics");
-        this.USE_ECONOMY = config.getBoolean("economy.use") && EconHandler.getEconHandler() != null;
+        this.USE_ECONOMY = config.getBoolean("economy.use");
         ConfigurationSection priceSection = config.getConfigurationSection("economy.prices");
         if (this.USE_ECONOMY) {
             this.PRICES = new HashMap<>();
@@ -223,6 +224,13 @@ public abstract class PlotArea {
                 this.PRICES.put(key, Expression.doubleExpression(priceSection.getString(key)));
             }
         }
+
+        if (this.USE_ECONOMY) {
+            PS.debug(C.PREFIX + "&3 - economy enabled: &7true");
+        } else {
+            PS.debug(C.PREFIX + "&3 - economy enabled: &7false");
+        }
+
         this.PLOT_CHAT = config.getBoolean("chat.enabled");
         this.WORLD_BORDER = config.getBoolean("world.border");
         this.MAX_BUILD_HEIGHT = config.getInt("world.max_height");
