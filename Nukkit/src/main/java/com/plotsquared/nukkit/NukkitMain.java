@@ -79,12 +79,6 @@ public final class NukkitMain extends PluginBase implements Listener, IPlotMain 
             this.name = getDescription().getName();
             getServer().getName();
             new PS(this, "Nukkit");
-            if (Settings.Enabled_Components.METRICS) {
-                new Metrics(this).start();
-                PS.log(C.PREFIX + "&6Metrics enabled.");
-            } else {
-                PS.log(C.CONSOLE_PLEASE_ENABLE_METRICS.f(getPluginName()));
-            }
             Generator.addGenerator(NukkitHybridGen.class, getPluginName(), 1);
             if (Settings.Enabled_Components.WORLDS) {
                 TaskManager.IMP.taskRepeat(this::unload, 20);
@@ -362,12 +356,6 @@ public final class NukkitMain extends PluginBase implements Listener, IPlotMain 
     @Override
     public InventoryUtil initInventoryUtil() {
         return new NukkitInventoryUtil();
-    }
-
-    @Override
-    public void startMetrics() {
-        new Metrics(this).start();
-        PS.log(C.PREFIX + "&6Metrics enabled.");
     }
 
     @Override

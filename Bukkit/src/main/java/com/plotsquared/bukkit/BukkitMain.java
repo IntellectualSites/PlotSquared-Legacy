@@ -123,8 +123,6 @@ public final class BukkitMain extends JavaPlugin implements Listener, IPlotMain 
     private int[] version;
     private String name;
     private SingleWorldListener singleWorldListener;
-    private boolean metricsStarted;
-    private static final int BSTATS_ID = 1404;
 
     @Override
     public int[] getServerVersion() {
@@ -170,11 +168,6 @@ public final class BukkitMain extends JavaPlugin implements Listener, IPlotMain 
         }
         this.name = getDescription().getName();
         new PS(this, "Bukkit");
-        if (Settings.Enabled_Components.METRICS) {
-            startMetrics();
-        } else {
-            PS.log(C.CONSOLE_PLEASE_ENABLE_METRICS.f(getPluginName()));
-        }
         if (Settings.Enabled_Components.WORLDS) {
             TaskManager.IMP.taskRepeat(this::unload, 20);
             try {
@@ -790,16 +783,6 @@ public final class BukkitMain extends JavaPlugin implements Listener, IPlotMain 
     @Override
     public InventoryUtil initInventoryUtil() {
         return new BukkitInventoryUtil();
-    }
-
-    @Override
-    public void startMetrics() {
-        if (this.metricsStarted) {
-            return;
-        }
-        Metrics metrics = new Metrics(this, BSTATS_ID);// bstats
-        PS.log(C.PREFIX + "&6Metrics enabled.");
-        this.metricsStarted = true;
     }
 
     @Override

@@ -167,8 +167,7 @@ public enum C {
      */
     CONSOLE_JAVA_OUTDATED("&cYour version of java is outdated. It is highly recommended that you update to Java 8 as it increases performance "
             + "and security. %s0 will require Java 8 in a future update.", "static.console"),
-    CONSOLE_PLEASE_ENABLE_METRICS("&dPlease enable metrics for %s0. Using metrics improves plugin stability, performance, and features. "
-            + "Bug fixes and new features are influenced on metrics.", "static.console"),
+
     /*
      * Confirm
      */

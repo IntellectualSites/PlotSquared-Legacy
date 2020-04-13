@@ -1,0 +1,15 @@
+[{
+  "modid": "plotsquared",
+  "name": "PlotSquared",
+  "version": "3.5.0-SNAPSHOT",
+  "description": "Easy, yet powerful Plot World generation and management.",
+  "authorList": [
+    "Citymonstret",
+    "Empire92",
+    "MattBDev",
+    "dordsor21",
+    "NotMyFault",
+    "SirYwell"
+  ],
+  "url": "https://github.com/IntellectualSites/PlotSquared-Legacy"
+}]
