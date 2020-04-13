@@ -15,7 +15,8 @@ is to provide a lag-free and smooth experience.
 ## Links
 
 * [Spigot Page](https://www.spigotmc.org/resources/plotsquared.1177/)
-* [Discord](https://discord.gg/ngZCzbU)
+* [Sponge Page](https://ore.spongepowered.org/IntellectualSites/PlotSquared)
+* [Discord](https://discord.gg/KxkjDVg)
 * [Wiki](https://github.com/IntellectualSites/PlotSquared-Legacy/wiki/)
 
 ## Downloads
