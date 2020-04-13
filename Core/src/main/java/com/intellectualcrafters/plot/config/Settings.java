@@ -145,8 +145,6 @@ public class Settings extends Config {
         Chat.CONSOLE_COLOR = config.getBoolean("console.color", Chat.CONSOLE_COLOR);
         Chat.INTERACTIVE = config.getBoolean("chat.fancy", Chat.INTERACTIVE);
 
-        Enabled_Components.METRICS = config.getBoolean("metrics", Enabled_Components.METRICS);
-        Enabled_Components.UPDATER = config.getBoolean("update-notifications", Enabled_Components.UPDATER);
         Enabled_Components.DATABASE_PURGER = config.getBoolean("auto-purge", Enabled_Components.DATABASE_PURGER);
         return true;
     }
@@ -316,8 +314,6 @@ public class Settings extends Config {
         public static boolean COMMANDS = true;
         @Comment("The UUID cacher is used to resolve player names")
         public static boolean UUID_CACHE = true;
-        @Comment("The plugin auto updater")
-        public static boolean UPDATER = true;
         @Comment("Stores user metadata in a database")
         public static boolean PERSISTENT_META = true;
         @Comment("Optimizes permission checks")
@@ -332,8 +328,6 @@ public class Settings extends Config {
         public static boolean WORLDEDIT_RESTRICTIONS = true;
         @Comment("Allow economy to be used")
         public static boolean ECONOMY = true;
-        @Comment("Send anonymous usage statistics. Bukkit only setting.")
-        public static boolean METRICS = true;
         @Comment("Expiry will clear old or simplistic plots")
         public static boolean PLOT_EXPIRY = false;
         @Comment("Processes chunks (trimming, or entity/tile limits) ")

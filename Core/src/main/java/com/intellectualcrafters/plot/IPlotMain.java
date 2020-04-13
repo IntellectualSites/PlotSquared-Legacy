@@ -193,11 +193,6 @@ public interface IPlotMain extends ILogger {
     HybridUtils initHybridUtils();
 
     /**
-     * Start Metrics.
-     */
-    void startMetrics();
-
-    /**
      * If a world is already loaded, set the generator (use NMS if required).
      * @param world The world to set the generator
      */

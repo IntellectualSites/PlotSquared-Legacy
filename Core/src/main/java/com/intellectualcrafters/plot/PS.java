@@ -133,11 +133,6 @@ public class PS{
             }
             // Required
             this.IMP.registerWorldEvents();
-            if (Settings.Enabled_Components.METRICS) {
-                this.IMP.startMetrics();
-            } else {
-                PS.log(C.CONSOLE_PLEASE_ENABLE_METRICS.f(IMP.getPluginName()));
-            }
             if (Settings.Enabled_Components.CHUNK_PROCESSOR) {
                 this.IMP.registerChunkProcessor();
             }
@@ -192,16 +187,10 @@ public class PS{
                     PS.debug("Incompatible version of WorldEdit, please upgrade: http://builds.enginehub.org/job/worldedit?branch=master");
                 }
             }
+
             // Economy
             if (Settings.Enabled_Components.ECONOMY) {
                 TaskManager.runTask(() -> EconHandler.manager = PS.this.IMP.getEconomyHandler());
-            }
-
-            // Check for updates
-            if (Settings.Enabled_Components.UPDATER) {
-                //updater = new Updater();
-                //TaskManager.IMP.taskAsync(() -> updater.update(getPlatform(), getVersion()));
-                //TaskManager.IMP.taskRepeatAsync(() -> updater.update(getPlatform(), getVersion()), 36000);
             }
 
             // World generators:
