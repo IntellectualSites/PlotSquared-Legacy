@@ -16,11 +16,11 @@ public class Settings extends Config {
 
     @Comment("These first 7 aren't configurable") // This is a comment
     @Final // Indicates that this value isn't configurable
-    public static final String ISSUES = "https://github.com/IntellectualSites/PlotSquared/issues";
+    public static final String ISSUES = "https://github.com/IntellectualSites/PlotSquared-Legacy/issues";
     @Final
     public static final String SUGGESTION = "https://github.com/IntellectualSites/PlotSquaredSuggestions";
     @Final
-    public static final String WIKI = "https://github.com/IntellectualSites/PlotSquared/wiki";
+    public static final String WIKI = "https://github.com/IntellectualSites/PlotSquared-Legacy/wiki";
     @Final
     public static String DATE; // These values are set from P2 before loading
     @Final
@@ -164,7 +164,7 @@ public class Settings extends Config {
         public List<String> WORLDS = new ArrayList<>(Collections.singletonList("*"));
 
 
-        @Comment("See: https://github.com/IntellectualSites/PlotSquared/wiki/Plot-analysis")
+        @Comment("See: https://github.com/IntellectualSites/PlotSquared-Legacy/wiki/Plot-analysis")
         public static final class CALIBRATION {
             public int VARIETY = 0;
             public int VARIETY_SD = 0;

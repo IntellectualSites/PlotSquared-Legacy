@@ -272,7 +272,7 @@ public abstract class Command {
             return;
         }
         if (this.allCommands == null || this.allCommands.isEmpty()) {
-            player.sendMessage("Not Implemented: https://github.com/IntellectualSites/PlotSquared/issues/new");
+            player.sendMessage("Not Implemented: https://github.com/IntellectualSites/PlotSquared-Legacy/issues/new");
             return;
         }
         Command cmd = getCommand(args[0]);

@@ -1574,7 +1574,7 @@ public class PS{
             this.version = PlotVersion.tryParse(versionString);
             Settings.DATE = new Date(100 + version.year, version.month, version.day).toGMTString();
             Settings.BUILD = "https://ci.athion.net/job/PlotSquared/" + version.build;
-            Settings.COMMIT = "https://github.com/IntellectualSites/PlotSquared/commit/" + Integer.toHexString(version.hash);
+            Settings.COMMIT = "https://github.com/IntellectualSites/PlotSquared-Legacy/commit/" + Integer.toHexString(version.hash);
             System.out.println("Version is " + this.version);
         } catch (Throwable ignore) {
             ignore.printStackTrace();

@@ -16,20 +16,14 @@ is to provide a lag-free and smooth experience.
 
 * [Spigot Page](https://www.spigotmc.org/resources/plotsquared.1177/)
 * [Discord](https://discord.gg/ngZCzbU)
-* [Wiki](https://github.com/intellectualcrafters/plotsquared/wiki)
+* [Wiki](https://github.com/IntellectualSites/PlotSquared-Legacy/wiki/)
 
 ## Downloads
-### 1.13+
-* [Download](https://ci.athion.net/job/PlotSquared-Releases/)
-* [Jenkins](https://ci.athion.net/job/PlotSquared-Breaking/)
-*[JavaDoc](https://ci.athion.net/job/PlotSquared-Breaking/javadoc/)
-
-### <1.12.2
 * [Download](https://ci.athion.net/job/PlotSquared-Legacy/)
-* [Jenkins](https://ci.athion.net/job/PlotSquared-Legacy/)
+* [Dev Builds](https://ci.athion.net/job/PlotSquared-Legacy/)
 * [JavaDoc](https://ci.athion.net/job/PlotSquared-Legacy/javadoc/)
 
-* [API Documentation](https://github.com/IntellectualSites/PlotSquared/wiki/Developer-documentation-(WIP))
+* [API Documentation](https://github.com/IntellectualSites/PlotSquared-Legacy/wiki/API-Documentation)
 
 # Building
 Gradle is the **recommended** way to build the project. Use `./gradlew build` in the main project directory to build the project. Gradle is required if you intend to build or develop the Sponge module.
@@ -39,7 +33,7 @@ If you prefer to use maven, a `pom.xml` file is provided for working with the Bu
 Feel free to contribute, if you feel like you can improve the plugin in any way. Make sure to test your code before sending it away from us, as committing broken code will block you from future contribution.
 
 ## Suggestions
-Suggestions are welcome! We have a separate issue tracker for suggestions, that can be found in [this](https://github.com/IntellectualSites/PlotSquaredSuggestions) repository.
+Suggestions are welcome! PlotSquared-Legacy accepts suggestions in the issue tracker!
 
 # Official Addons
 ## Updated
@@ -55,7 +49,7 @@ Suggestions are welcome! We have a separate issue tracker for suggestions, that 
 * [HoloPlots](https://www.spigotmc.org/resources/holoplots.4880/)
 
 # Sponsors
-<p align="center"><a href="https://incendo.org" title="Incendo"><img width="160" height="160" src="https://i.imgur.com/zjRmJkw.png"/></a></p>
+<p align="center"><a href="#" title="Incendo"><img width="160" height="160" src="https://i.imgur.com/zjRmJkw.png"/></a></p>
 <p align="center"><a href="https://www.jetbrains.com/idea/" title="IntelliJ IDEA"><img height="100" src="https://i.imgur.com/xa2XsRN.png"/></a></p>
 <p align="center"><a href="https://www.athion.net/" title="Athion network"><img height="200" src="https://i.imgur.com/Z4E1Hcb.png"/></a></p>
 <p align="center"><a href="https://www.buildersrefuge.com/" title="Builder's Refuge"><img height="200" src="https://i.imgur.com/mjT5Ogz.png"/></a></p>

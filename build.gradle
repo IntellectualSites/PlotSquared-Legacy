@@ -70,9 +70,7 @@ subprojects {
     }
     repositories {
         mavenCentral()
-        maven {url "http://empcraft.com/maven2"}
         maven {url "http://maven.sk89q.com/repo/"}
-        maven {url "http://repo.maven.apache.org/maven2"}
     }
 }
 task aggregatedJavadocs(type: Javadoc, description: 'Generate javadocs from all child projects as if it was a single project', group: 'Documentation') {
