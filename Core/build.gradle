@@ -8,10 +8,9 @@ dependencies {
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
-
 processResources {
-    from('src/main/resources') {
-        include 'plugin.properties'
+    from("src/main/resources") {
+        include "plugin.properties"
         expand(
                 version: "${project.parent.version}",
                 name: project.parent.name,
@@ -19,23 +18,25 @@ processResources {
     }
 }
 
-jar.archiveName="plotsquared-api-${project.parent.version}.jar"
-jar.destinationDir = file '../mvn/com/plotsquared/plotsquared-api/' + project.parent.version
+//noinspection GroovyAssignabilityCheck
+jar.archiveFileName = "plotsquared-api-${project.parent.version}.jar"
+jar.destinationDirectory = file("../mvn/com/plotsquared/plotsquared-api/" + project.parent.version)
 task createPom {
     pom {
         project {
-            groupId 'com.plotsquared'
-            artifactId 'plotsquared-api'
-            version project.parent.version
+            groupId = rootProject.group
+            artifactId = "plotsquared-api"
+            version = rootProject.version
         }
     }.writeTo("../mvn/com/plotsquared/plotsquared-api/${project.parent.version}/plotsquared-api-${project.parent.version}.pom")
     pom {
         project {
-            groupId 'com.plotsquared'
-            artifactId 'plotsquared-api'
-            version 'latest'
+            groupId = rootProject.group
+            artifactId = "plotsquared-api"
+            version = "latest"
         }
     }.writeTo("../mvn/com/plotsquared/plotsquared-api/latest/plotsquared-api-latest.pom")
+     .writeTo("pom.xml")
 }
 
 task copyFiles {

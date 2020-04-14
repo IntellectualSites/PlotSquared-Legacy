@@ -1,46 +1,48 @@
 repositories {
-    maven { url "https://oss.sonatype.org/content/repositories/snapshots/" }
-    maven { url "http://nexus.hc.to/content/repositories/pub_releases" }
-    maven { url "https://repo.nukkitx.com/maven-snapshots" }
+    maven { url = "https://oss.sonatype.org/content/repositories/snapshots/" }
+    maven { url = "http://nexus.hc.to/content/repositories/pub_releases" }
+    maven { url = "https://repo.nukkitx.com/maven-snapshots" }
 }
 
 dependencies {
-    implementation project(':Core')
-    compile project(':Core')
-    compile 'com.google.guava:guava:21.0'
-    compile 'cn.nukkit:nukkit:1.0-SNAPSHOT'
+    implementation(project(":Core"))
+    compile(project(":Core"))
+    compile("com.google.guava:guava:21.0")
+    compile("cn.nukkit:nukkit:1.0-SNAPSHOT")
 }
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
+
 processResources {
-    from('src/main/resources') {
-        include 'plugin.yml'
+    from("src/main/resources") {
+        include "plugin.yml"
         expand(
-            name: project.parent.name,
-            version: project.parent.version
+                name: project.parent.name,
+                version: project.parent.version
         )
     }
 }
 
 jar.archiveFileName = "plotsquared-nukkitapi-${project.parent.version}.jar"
-jar.destinationDirectory = file '../mvn/com/plotsquared/plotsquared-nukkitapi/' + project.parent.version
+jar.destinationDirectory = file("../mvn/com/plotsquared/plotsquared-nukkitapi/" + project.parent.version)
 task createPom {
     doLast {
         pom {
             project {
-                groupId = "com.plotsquared"
+                groupId = rootProject.group
                 artifactId = "plotsquared-nukkitapi"
-                version = project.parent.version
+                version = rootProject.version
             }
         }.writeTo("../mvn/com/plotsquared/plotsquared-nukkitapi/${project.parent.version}/plotsquared-nukkitapi-${project.parent.version}.pom")
         pom {
             project {
-                groupId = "com.plotsquared"
+                groupId = rootProject.group
                 artifactId = "plotsquared-nukkitapi"
                 version = "latest"
             }
         }.writeTo("../mvn/com/plotsquared/plotsquared-nukkitapi/latest/plotsquared-nukkitapi-latest.pom")
+         .writeTo("pom.xml")
     }
 }
 
@@ -59,12 +61,12 @@ shadowJar {
     dependencies {
         include(dependency(':Core'))
     }
-    archiveName = "${parent.name}-${project.name}-${parent.version}.jar"
-    destinationDir = file '../target'
+    archiveFileName = "${parent.name}-${project.name}-${parent.version}.jar"
+    destinationDirectory = file "../target"
 
-    relocate('com.google.gson', 'com.sk89q.worldedit.internal.gson')
-    relocate 'org.yaml.snakeyaml', 'com.boydti.fawe.yaml'
-    relocate 'com.google.common', 'com.sk89q.worldedit.internal.common'
+    relocate("com.google.gson", "com.sk89q.worldedit.internal.gson")
+    relocate("org.yaml.snakeyaml", "com.boydti.fawe.yaml")
+    relocate("com.google.common", "com.sk89q.worldedit.internal.common")
 }
 
 shadowJar.doLast {

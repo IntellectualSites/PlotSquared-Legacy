@@ -6,10 +6,8 @@ buildscript {
             name = "forge"
             url = "https://files.minecraftforge.net/maven"
         }
-        maven {url = "http://repo.minecrell.net/releases"}
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
+        maven { url = "http://repo.minecrell.net/releases" }
+        maven { url = "https://plugins.gradle.org/m2/" }
     }
     dependencies {
         classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
@@ -17,16 +15,16 @@ buildscript {
 }
 
 plugins {
-    id 'java'
-    id 'org.spongepowered.plugin' version '0.9.0'
-    id 'net.minecrell.vanillagradle.server' version '2.2-6'
+    id "java"
+    id "org.spongepowered.plugin" version "0.9.0"
+    id "net.minecrell.vanillagradle.server" version "2.2-6"
 }
 
 dependencies {
-    compile project(':Core')
-    compile 'org.spongepowered:spongeapi:7.2.0'
+    compile(project(":Core"))
+    compile("org.spongepowered:spongeapi:7.2.0")
 
-    implementation project (':Core')
+    implementation(project(":Core"))
 }
 
 sourceCompatibility = 1.8
@@ -64,23 +62,24 @@ processResources {
 }
 
 jar.archiveFileName = "plotsquared-spongeapi-${project.parent.version}.jar"
-jar.destinationDirectory = file '../mvn/com/plotsquared/plotsquared-spongeapi/' + project.parent.version
+jar.destinationDirectory = file("../mvn/com/plotsquared/plotsquared-spongeapi/" + project.parent.version)
 task createPom {
     doLast {
         pom {
             project {
-                groupId = "com.plotsquared"
+                groupId = rootProject.group
                 artifactId = "plotsquared-spongeapi"
-                version = project.parent.version
+                version = rootProject.version
             }
-        }.writeTo("../mvn/com/plotsquared/plotsquared-spongeapi/${project.parent.version}/plotsqzared-spongeapi-${project.parent.version}.pom")
+        }.writeTo("../mvn/com/plotsquared/plotsquared-spongeapi/${project.parent.version}/plotsquared-spongeapi-${project.parent.version}.pom")
         pom {
             project {
-                groupId = "com.plotsquared"
+                groupId = rootProject.group
                 artifactId = "plotsquared-spongeapi"
                 version = "latest"
             }
         }.writeTo("../mvn/com/plotsquared/plotsquared-spongeapi/latest/plotsquared-spongeapi-latest.pom")
+         .writeTo("pom.xml")
     }
 }
 
@@ -99,8 +98,8 @@ shadowJar {
     dependencies {
         include(dependency(':Core'))
     }
-    archiveName = "${parent.name}-${project.name}-${parent.version}.jar"
-    destinationDir = file '../target'
+    archiveFileName = "${parent.name}-${project.name}-${parent.version}.jar"
+    destinationDirectory = file '../target'
 }
 shadowJar.doLast {
     task ->
