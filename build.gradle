@@ -66,7 +66,7 @@ subprojects {
             exclude(module: 'mockito-core')
             exclude(module: 'dummypermscompat')
         }
-        compile 'com.google.guava:guava:10.0'
+        compile 'com.google.guava:guava:23.0'
     }
     repositories {
         mavenCentral()
