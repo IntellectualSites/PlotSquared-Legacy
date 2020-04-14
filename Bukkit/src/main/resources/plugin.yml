@@ -2,9 +2,9 @@ name: ${name}
 main: com.plotsquared.bukkit.BukkitMain
 version: ${version}
 load: STARTUP
-description: >
-             Easy, yet powerful Plot World generation and management.
-authors: [Citymonstret, Empire92, MattBDev, dordsor21]
+description: Easy, yet powerful Plot World generation and management.
+authors: [Citymonstret, Empire92, MattBDev, dordsor21, NotMyFault]
+website: https://github.com/IntellectualSites/
 softdepend: [WorldEdit, BarAPI, CameraAPI, Vault]
 loadbefore: [MultiWorld, Multiverse-Core]
 database: false
@@ -49,7 +49,6 @@ permissions:
       plots.set.flag.explosion.*: true
       plots.set.flag.hostile-interact.*: true
       plots.set.flag.hostile-attack.*: true
-      plots.set.flag.player-interact.*: true
       plots.set.flag.animal-interact.*: true
       plots.set.flag.animal-attack.*: true
       plots.set.flag.tamed-interact.*: true
@@ -73,13 +72,9 @@ permissions:
       comments.notifications.enabled  : true 
       plots.inbox.read.public: true
       plots.inbox.modify.public: true
-      plots.inbox.modify.public: true
       plots.inbox.write.public: true
-      plots.inbox.read.public: true
-      plots.inbox.read.report: true
       plots.inbox.write.report: true
       plots.inbox.read.report: true
-      plots.inbox.read.owner: true
       plots.inbox.modify.owner: true
       plots.inbox.write.owner: true
       plots.inbox.read.owner: true

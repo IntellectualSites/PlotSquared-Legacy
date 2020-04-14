@@ -2,7 +2,7 @@ dependencies {
     testCompile 'junit:junit:4.13'
     compile 'org.yaml:snakeyaml:1.16'
     compile 'com.google.code.gson:gson:2.8.6'
-    compileOnly 'org.jetbrains:annotations:17.0.0'
+    compileOnly 'org.jetbrains:annotations:19.0.0'
 }
 
 sourceCompatibility = 1.8
