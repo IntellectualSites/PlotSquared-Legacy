@@ -14,24 +14,12 @@ public class Settings extends Config {
     NOTE: Fields are saved in declaration order, classes in reverse order
      */
 
-    @Comment("These first 7 aren't configurable") // This is a comment
-    @Final // Indicates that this value isn't configurable
-    public static final String ISSUES = "https://github.com/IntellectualSites/PlotSquared-Legacy/issues";
-    @Final
-    public static final String SUGGESTION = "https://github.com/IntellectualSites/PlotSquaredSuggestions";
-    @Final
-    public static final String WIKI = "https://github.com/IntellectualSites/PlotSquared-Legacy/wiki";
-    @Final
-    public static String DATE; // These values are set from P2 before loading
-    @Final
-    public static String BUILD; // These values are set from P2 before loading
-    @Final
-    public static String COMMIT; // These values are set from P2 before loading
+    @Comment("These first value is not configurable") // This is a comment
     @Final
     public static String PLATFORM; // These values are set from P2 before loading
 
     @Comment("Show additional information in console")
-    public static boolean DEBUG = true;
+    public static boolean DEBUG = false;
     @Comment({"The big annoying text that appears when you enter a plot", "For a single plot: `/plot flag set titles false`", "For just you: `/plot toggle titles`"})
     public static boolean TITLES = true;
 
@@ -226,7 +214,7 @@ public class Settings extends Config {
                 " - Downloads can be deleted by the user",
                 " - Supports plot uploads, downloads and saves",
         })
-        public static String URL = "https://empcraft.com/plots/";
+        public static String URL = "https://athion.net/plots";
         @Comment({
                 "The web interface for assets",
                 " - All schematics are organized and public",

@@ -29,6 +29,7 @@ import com.plotsquared.bukkit.database.plotme.LikePlotMeConverter;
 import com.plotsquared.bukkit.database.plotme.PlotMeConnector_017;
 import com.plotsquared.bukkit.generator.BukkitPlotGenerator;
 import com.plotsquared.bukkit.listeners.*;
+import com.plotsquared.bukkit.placeholders.Placeholders;
 import com.plotsquared.bukkit.titles.DefaultTitle_111;
 import com.plotsquared.bukkit.util.*;
 import com.plotsquared.bukkit.util.block.BukkitLocalQueue;
@@ -175,6 +176,12 @@ public final class BukkitMain extends JavaPlugin implements Listener, IPlotMain 
             } catch (Exception e) {
                 e.printStackTrace();
             }
+        }
+        if (Bukkit.getPluginManager().getPlugin("PlaceholderAPI") != null) {
+            new Placeholders(this).register();
+            PS.log(C.PREFIX + "&6PlaceholderAPI found! Hook activated.");
+        } else {
+            PS.debug(C.PREFIX + "&6PlaceholderAPI is not in use. Hook deactivated.");
         }
     }
 

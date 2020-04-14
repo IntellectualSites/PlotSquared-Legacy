@@ -29,11 +29,7 @@ import com.intellectualcrafters.plot.util.expiry.ExpiryTask;
 import com.plotsquared.listener.WESubscriber;
 import com.sk89q.worldedit.WorldEdit;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.io.*;
 import java.net.MalformedURLException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -1555,16 +1551,14 @@ public class PS{
             }
         }
         Settings.load(configFile);
-        try {
-            InputStream stream = getClass().getResourceAsStream("/plugin.properties");
-            java.util.Scanner scanner = new java.util.Scanner(stream).useDelimiter("\\A");
-            String versionString = scanner.next().trim();
-            scanner.close();
-            this.version = PlotVersion.tryParse(versionString);
-            Settings.DATE = new Date(100 + version.year, version.month, version.day).toGMTString();
-            Settings.BUILD = "https://ci.athion.net/job/PlotSquared/" + version.build;
-            Settings.COMMIT = "https://github.com/IntellectualSites/PlotSquared-Legacy/commit/" + Integer.toHexString(version.hash);
-            System.out.println("Version is " + this.version);
+        try (InputStream stream = getClass().getResourceAsStream("/plugin.properties")) {
+            try (BufferedReader br = new BufferedReader(new InputStreamReader(stream))) {
+                String versionString = br.readLine();
+                String commitString = br.readLine();
+                String dateString = br.readLine();
+                this.version = PlotVersion.tryParse(versionString, commitString, dateString);
+                System.out.println("PlotSquared version is " + this.version);
+            }
         } catch (Throwable ignore) {
             ignore.printStackTrace();
         }
