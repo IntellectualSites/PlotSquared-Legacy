@@ -63,6 +63,38 @@ processResources {
     }
 }
 
+jar.archiveFileName = "plotsquared-spongeapi-${project.parent.version}.jar"
+jar.destinationDirectory = file '../mvn/com/plotsquared/plotsquared-spongeapi/' + project.parent.version
+task createPom {
+    doLast {
+        pom {
+            project {
+                groupId = "com.plotsquared"
+                artifactId = "plotsquared-spongeapi"
+                version = project.parent.version
+            }
+        }.writeTo("../mvn/com/plotsquared/plotsquared-spongeapi/${project.parent.version}/plotsqzared-spongeapi-${project.parent.version}.pom")
+        pom {
+            project {
+                groupId = "com.plotsquared"
+                artifactId = "plotsquared-spongeapi"
+                version = "latest"
+            }
+        }.writeTo("../mvn/com/plotsquared/plotsquared-spongeapi/latest/plotsquared-spongeapi-latest.pom")
+    }
+}
+
+task copyFiles {
+    doLast {
+        copy {
+            from("../mvn/com/plotsquared/plotsquared-spongeapi/${project.parent.version}/")
+            into("../mvn/com/plotsquared/plotsquared-spongeapi/latest/")
+            include("plotsquared-spongeapi*.jar")
+            rename("plotsquared-spongeapi-${project.parent.version}.jar", "plotsquared-spongeapi-latest.jar")
+        }
+    }
+}
+
 shadowJar {
     dependencies {
         include(dependency(':Core'))

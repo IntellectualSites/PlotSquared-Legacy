@@ -23,6 +23,7 @@ plugins {
 
 group = 'com.intellectualcrafters'
 
+def rootVersion = "3"
 def revision = ""
 def buildNumber = ""
 def date = ""
@@ -32,17 +33,17 @@ ext {
     revision = "-${git.head().abbreviatedId}"
     parents = git.head().parentIds;
     if (project.hasProperty('buildnumber')) {
-        buildNumber = "-$buildnumber"
+        buildNumber = "$buildnumber"
     } else {
         index = -1352;  // Offset to match CI
         for (; parents != null && !parents.isEmpty(); index++) {
             parents = git.getResolve().toCommit(parents.get(0)).getParentIds()
         }
-        buildNumber = "-${index}"
+        buildNumber = "${index}"
     }
 }
 
-version = date + revision + buildNumber
+version = String.format("%s.%s", rootVersion, buildNumber)
 
 description = rootProject.name
 if ( project.hasProperty("lzNoVersion") ) { // gradle build -PlzNoVersion
