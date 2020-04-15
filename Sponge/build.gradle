@@ -118,3 +118,5 @@ task deobfJar(type: Jar) {
 }
 
 build.dependsOn(shadowJar)
+build.finalizedBy(copyFiles)
+copyFiles.dependsOn(createPom)
