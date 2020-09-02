@@ -1,6 +1,6 @@
 dependencies {
     testCompile 'junit:junit:4.13'
-    compile 'org.yaml:snakeyaml:1.16'
+    compile 'org.yaml:snakeyaml:1.26'
     compile 'com.google.code.gson:gson:2.8.6'
     compileOnly 'org.jetbrains:annotations:20.1.0'
 }
