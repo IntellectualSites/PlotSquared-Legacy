@@ -11,7 +11,7 @@ buildscript {
     }
     configurations.all {
         resolutionStrategy {
-            force 'org.ow2.asm:asm:7.0'
+            force 'org.ow2.asm:asm:8.0.1'
         }
     }
 }
