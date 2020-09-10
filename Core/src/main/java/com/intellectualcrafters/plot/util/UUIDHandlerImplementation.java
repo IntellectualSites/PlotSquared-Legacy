@@ -162,7 +162,13 @@ public abstract class UUIDHandlerImplementation {
         try {
             UUID offline = this.uuidMap.put(name, uuid);
             if (offline != null) {
-                if (!offline.equals(uuid)) {
+                if (offline.equals(uuid)) {
+                    StringWrapper oName = this.uuidMap.inverse().get(offline);
+                    if (!oName.equals(name)) {
+                        this.uuidMap.remove(oName);
+                        this.uuidMap.put(name, uuid);
+                    }
+                } else if (Settings.UUID.OFFLINE) {
                     Set<Plot> plots = PS.get().getPlots(offline);
                     if (!plots.isEmpty()) {
                         for (Plot plot : plots) {
@@ -171,12 +177,6 @@ public abstract class UUIDHandlerImplementation {
                         replace(offline, uuid, name.value);
                     }
                     return true;
-                } else {
-                    StringWrapper oName = this.uuidMap.inverse().get(offline);
-                    if (!oName.equals(name)) {
-                        this.uuidMap.remove (name);
-                        this.uuidMap.put(name, uuid);
-                    }
                 }
                 return false;
             }
