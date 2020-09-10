@@ -168,6 +168,7 @@ public abstract class UUIDHandlerImplementation {
                         this.uuidMap.remove(oName);
                         this.uuidMap.put(name, uuid);
                     }
+                    return false;
                 } else if (Settings.UUID.OFFLINE) {
                     Set<Plot> plots = PS.get().getPlots(offline);
                     if (!plots.isEmpty()) {
@@ -176,9 +177,8 @@ public abstract class UUIDHandlerImplementation {
                         }
                         replace(offline, uuid, name.value);
                     }
-                    return true;
                 }
-                return false;
+                return true;
             }
         } catch (Exception ignored) {
             BiMap<UUID, StringWrapper> inverse = this.uuidMap.inverse();
