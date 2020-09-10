@@ -116,10 +116,14 @@ public abstract class UUIDHandlerImplementation {
                 @Override
                 public void run() {
                     UUID offline = UUID.nameUUIDFromBytes(("OfflinePlayer:" + name.value).getBytes(Charsets.UTF_8));
-                    if (!UUIDHandlerImplementation.this.unknown.contains(offline) && !name.value.equals(name.value.toLowerCase())) {
-                        offline = UUID.nameUUIDFromBytes(("OfflinePlayer:" + name.value.toLowerCase()).getBytes(Charsets.UTF_8));
-                        if (!UUIDHandlerImplementation.this.unknown.contains(offline)) {
+                    if (!UUIDHandlerImplementation.this.unknown.contains(offline)) {
+                        if (name.value.equals(name.value.toLowerCase())) {
                             offline = null;
+                        } else {
+                            offline = UUID.nameUUIDFromBytes(("OfflinePlayer:" + name.value.toLowerCase()).getBytes(Charsets.UTF_8));
+                            if (!UUIDHandlerImplementation.this.unknown.contains(offline)) {
+                                offline = null;
+                            }
                         }
                     }
                     if (offline != null && !offline.equals(uuid)) {
