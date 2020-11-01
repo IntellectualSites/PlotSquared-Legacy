@@ -116,10 +116,14 @@ public abstract class UUIDHandlerImplementation {
                 @Override
                 public void run() {
                     UUID offline = UUID.nameUUIDFromBytes(("OfflinePlayer:" + name.value).getBytes(Charsets.UTF_8));
-                    if (!UUIDHandlerImplementation.this.unknown.contains(offline) && !name.value.equals(name.value.toLowerCase())) {
-                        offline = UUID.nameUUIDFromBytes(("OfflinePlayer:" + name.value.toLowerCase()).getBytes(Charsets.UTF_8));
-                        if (!UUIDHandlerImplementation.this.unknown.contains(offline)) {
+                    if (!UUIDHandlerImplementation.this.unknown.contains(offline)) {
+                        if (name.value.equals(name.value.toLowerCase())) {
                             offline = null;
+                        } else {
+                            offline = UUID.nameUUIDFromBytes(("OfflinePlayer:" + name.value.toLowerCase()).getBytes(Charsets.UTF_8));
+                            if (!UUIDHandlerImplementation.this.unknown.contains(offline)) {
+                                offline = null;
+                            }
                         }
                     }
                     if (offline != null && !offline.equals(uuid)) {
@@ -158,7 +162,14 @@ public abstract class UUIDHandlerImplementation {
         try {
             UUID offline = this.uuidMap.put(name, uuid);
             if (offline != null) {
-                if (!offline.equals(uuid)) {
+                if (offline.equals(uuid)) {
+                    StringWrapper oName = this.uuidMap.inverse().get(offline);
+                    if (!oName.equals(name)) {
+                        this.uuidMap.remove(oName);
+                        this.uuidMap.put(name, uuid);
+                    }
+                    return false;
+                } else if (Settings.UUID.OFFLINE) {
                     Set<Plot> plots = PS.get().getPlots(offline);
                     if (!plots.isEmpty()) {
                         for (Plot plot : plots) {
@@ -166,15 +177,8 @@ public abstract class UUIDHandlerImplementation {
                         }
                         replace(offline, uuid, name.value);
                     }
-                    return true;
-                } else {
-                    StringWrapper oName = this.uuidMap.inverse().get(offline);
-                    if (!oName.equals(name)) {
-                        this.uuidMap.remove (name);
-                        this.uuidMap.put(name, uuid);
-                    }
                 }
-                return false;
+                return true;
             }
         } catch (Exception ignored) {
             BiMap<UUID, StringWrapper> inverse = this.uuidMap.inverse();
