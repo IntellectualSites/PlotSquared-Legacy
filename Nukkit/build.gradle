@@ -8,7 +8,7 @@ dependencies {
     implementation(project(":Core"))
     compile(project(":Core"))
     compile("com.google.guava:guava:21.0")
-    compile("cn.nukkit:nukkit:1.0-SNAPSHOT")
+    compile("cn.nukkit:nukkit:2.0.0-SNAPSHOT")
 }
 
 sourceCompatibility = 1.8
