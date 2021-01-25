@@ -22,7 +22,7 @@ plugins {
 
 dependencies {
     compile(project(":Core"))
-    compile("org.spongepowered:spongeapi:7.2.0")
+    compile("org.spongepowered:spongeapi:7.3.0")
 
     implementation(project(":Core"))
 }
