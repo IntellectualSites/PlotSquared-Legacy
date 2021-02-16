@@ -17,7 +17,7 @@ assignees: ''
 
 **Code contributions are to be done through [PRs](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request), tagging the specific issue ticket(s) if applicable.**
 
-**[DISCORD INVITE LINK](https://discord.gg/KxkjDVg)**
+**[DISCORD INVITE LINK](https://discord.gg/intellectualsites)**
 -->
 
 # Bug Report Template:

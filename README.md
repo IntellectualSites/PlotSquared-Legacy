@@ -17,7 +17,7 @@ is to provide a lag-free and smooth experience.
 * [Spigot Page](https://www.spigotmc.org/resources/plotsquared.1177/)
 * [Sponge Page](https://ore.spongepowered.org/IntellectualSites/PlotSquared)
 * [Nukkit Page](https://nukkitx.com/resources/plotsquared.31/)
-* [Discord](https://discord.gg/KxkjDVg)
+* [Discord](https://discord.gg/intellectualsites)
 * [Wiki](https://github.com/IntellectualSites/PlotSquared-Legacy/wiki/)
 
 ## Downloads
