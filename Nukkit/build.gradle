@@ -7,7 +7,7 @@ repositories {
 dependencies {
     implementation(project(":Core"))
     compile(project(":Core"))
-    compile("com.google.guava:guava:21.0")
+    compile("com.google.guava:guava:31.0.1-jre")
     compile("cn.nukkit:nukkit:1.0-SNAPSHOT")
 }
 
